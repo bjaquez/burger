@@ -4,9 +4,7 @@ var orm = {
     seeAll: function(table, cb) {
         var queryString = "SELECT * FROM " + table;
         connection.query(queryString, function(err, result) {
-          if (err) {
-            throw err;
-          }
+          if (err) throw err;
           cb(result);
         });
       },

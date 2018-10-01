@@ -9,6 +9,7 @@ router.get("/", function(req, res) {
     burger.seeAll(function(data) {
       console.log(data)
       res.render("index", {burgers: data});
+     
     });
   }); 
 
@@ -33,5 +34,5 @@ router.get("/", function(req, res) {
       res.redirect('https://mydomain.com'+req.url);
     } else next();
   });
-  
+
 module.exports = router;
