@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 pic">
+                <p class = "title">Eat Da Burger</p>
+            <img class = "burger-pic img-fluid" src="https://i.ytimg.com/vi/k5e1HPeusiA/hqdefault.jpg">
+            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 ready">
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li class="list-group-item"> {{id}}. {{name}} <button class="eat btn btn-warning" data-id="{{id}}">Devour</button> </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-lg-4 eaten">
+            <ul class="list-group">
+                {{#each burgers}}
+                {{#if devoured}}
+                <li class="list-group-item"> {{id}}. {{name}} </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 new-burger">
+
+            <form class="burger-form">
+
+                <div class="form-group">
+                    <label for="new-burger">Burger Name</label>
+                    <input type="text" id="new-burger" name="name">
+                </div>
+
+                <button class = "btn btn-warning" type="submit">Add Burger</button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+</div>
