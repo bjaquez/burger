@@ -27,5 +27,10 @@ router.get("/", function(req, res) {
       res.json(result);
     })
   })
-
+  router.get("/*", function(req, res) {
+    burger.seeAll(function(data) {
+      console.log(data)
+      res.render("index", {burgers: data});
+    });
+  }); 
 module.exports = router;
