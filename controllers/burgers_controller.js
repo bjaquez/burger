@@ -8,7 +8,7 @@ var burger = require("../models/burger")
 router.get("/", function(req, res) {
     burger.seeAll(function(data) {
       console.log(data)
-      return res.render("index", {burgers: data});
+      res.render("index", {burgers: data});
     });
   }); 
 
@@ -16,7 +16,7 @@ router.get("/", function(req, res) {
     var condition = "id = " + req.params.id;
     
     burger.updateOne(condition, function(result){
-      return res.json(result);
+      res.json(result);
     })
   });
 
@@ -24,13 +24,14 @@ router.get("/", function(req, res) {
     console.log(req.body.name);
 
     burger.createOne(req.body.name, function(result){
-      return res.json(result);
+      res.json(result);
     })
   })
-  // router.get("/*", function(req, res) {
-  //   burger.seeAll(function(data) {
-  //     console.log(data)
-  //     return res.render("index", {burgers: data});
-  //   });
-  // }); 
+
+  router.get('*',function(req,res,next){
+    if(req.headers['x-forwarded-proto'] != 'https'){
+      res.redirect('https://mydomain.com'+req.url);
+    } else next();
+  });
+  
 module.exports = router;
