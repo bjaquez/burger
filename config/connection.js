@@ -1,13 +1,22 @@
 var mysql = require("mysql");
 
-var connection = mysql.createConnection({
-  host: "p1us8ottbqwio8hv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: 3306,
-  user: "",
-  password: "",
-  database: "u3s8i6hpvmserwb0"
-});
+require("dotenv").config();
 
+
+var connection;
+
+if(process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+
+connection = mysql.createConnection({
+  host: "localhost",
+  port: 8889,
+  user: "root",
+  password: "root",
+  database: "burgers_db"
+});
+}
 
 connection.connect(function(err) {
   if (err) {

@@ -1,5 +1,5 @@
-CREATE DATABASE u3s8i6hpvmserwb0;
-USE u3s8i6hpvmserwb0;
+CREATE DATABASE i9pa92nlb4k033l9;
+USE i9pa92nlb4k033l9;
 
 CREATE TABLE burgers
 (
